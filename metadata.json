@@ -1,0 +1,6 @@
+{
+  "name": "Folio Notes",
+  "description": "A sleek cloud-synced Notes and Checklists Android app with folders, color tags, pinning, archive, and instant search.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

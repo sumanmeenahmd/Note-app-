@@ -1,0 +1,98 @@
+<resources>
+    <string name="app_name">Folio Notes</string>
+    <string name="workspace_subtitle_format">%1$d notes · %2$d pinned</string>
+    <string name="search_notes_placeholder">Search notes, checklists, or #tags…</string>
+    <string name="cd_clear_search">Clear search</string>
+    <string name="cd_settings_button">Appearance and workspace settings</string>
+    <string name="cd_toggle_layout">Switch between grid and list layout</string>
+    <string name="cd_sort_notes">Sort notes</string>
+
+    <string name="nav_notes">Notes</string>
+    <string name="nav_checklists">Checklists</string>
+    <string name="nav_vault">Vault</string>
+
+    <string name="section_pinned">PINNED</string>
+    <string name="section_others">ALL NOTES</string>
+    <string name="section_checklists">CHECKLISTS</string>
+
+    <string name="filter_all">All</string>
+    <string name="filter_favorites">Starred</string>
+
+    <string name="fab_new_note">New note</string>
+    <string name="cd_new_checklist">New checklist</string>
+
+    <string name="empty_notes_title">A fresh page awaits</string>
+    <string name="empty_notes_subtitle">Capture quick thoughts, structured checklists, and project ideas with color tags and instant search.</string>
+    <string name="empty_notes_cta">Write your first note</string>
+
+    <string name="empty_checklists_title">No checklists yet</string>
+    <string name="empty_checklists_subtitle">Create interactive to-do lists for groceries, daily goals, or sprint tasks.</string>
+    <string name="empty_checklists_cta">Create a checklist</string>
+
+    <string name="empty_search_title">No matching notes</string>
+    <string name="empty_search_subtitle">Try another keyword, tag, or clear your category filter.</string>
+    <string name="clear_filters">Reset filters</string>
+
+    <string name="vault_tab_archived">Archived (%1$d)</string>
+    <string name="vault_tab_trash">Trash (%1$d)</string>
+    <string name="empty_archive_title">Archive is clear</string>
+    <string name="empty_archive_subtitle">Archive finished notes to keep your main workspace focused without deleting them.</string>
+    <string name="empty_trash_title">Trash is empty</string>
+    <string name="empty_trash_subtitle">Deleted notes stay here until you restore them or empty the trash.</string>
+    <string name="action_empty_trash">Empty trash</string>
+    <string name="confirm_empty_trash_title">Empty trash?</string>
+    <string name="confirm_empty_trash_message">All %1$d notes in Trash will be permanently deleted. This cannot be undone.</string>
+    <string name="action_delete_forever">Delete forever</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_restore">Restore</string>
+    <string name="action_unarchive">Unarchive</string>
+    <string name="action_undo">Undo</string>
+
+    <string name="msg_note_archived">Note moved to Archive</string>
+    <string name="msg_note_trashed">Note moved to Trash</string>
+    <string name="msg_notes_archived">%1$d notes archived</string>
+    <string name="msg_notes_trashed">%1$d notes moved to Trash</string>
+    <string name="msg_note_restored">Note restored</string>
+    <string name="msg_note_deleted_forever">Note permanently deleted</string>
+    <string name="msg_note_duplicated">Note duplicated</string>
+    <string name="msg_trash_emptied">Trash emptied</string>
+
+    <string name="cd_back">Back</string>
+    <string name="cd_pin_note">Pin note</string>
+    <string name="cd_unpin_note">Unpin note</string>
+    <string name="cd_favorite_note">Star note</string>
+    <string name="cd_unfavorite_note">Remove star</string>
+    <string name="cd_share_note">Share note</string>
+    <string name="cd_more_options">More note actions</string>
+    <string name="editor_title_hint">Untitled note</string>
+    <string name="editor_checklist_title_hint">Checklist title</string>
+    <string name="editor_body_hint">Start writing your thoughts…</string>
+    <string name="editor_add_checklist_item">Add checklist item</string>
+    <string name="editor_add_tag">Add tag</string>
+    <string name="editor_tag_placeholder">e.g. design</string>
+    <string name="action_add">Add</string>
+    <string name="action_duplicate">Duplicate</string>
+    <string name="action_archive">Archive</string>
+    <string name="action_move_to_trash">Move to trash</string>
+    <string name="action_clear_completed">Clear completed (%1$d)</string>
+    <string name="cd_toggle_checklist_mode">Toggle checklist</string>
+    <string name="cd_insert_bullet">Insert bullet</string>
+    <string name="cd_insert_timestamp">Insert timestamp</string>
+    <string name="cd_pick_color">Choose paper color</string>
+    <string name="cd_delete_checklist_item">Remove checklist item</string>
+
+    <string name="settings_title">Workspace &amp; Style</string>
+    <string name="settings_theme_label">Appearance</string>
+    <string name="settings_dynamic_color">Material You wallpaper colors</string>
+    <string name="settings_layout_label">Note layout</string>
+    <string name="settings_layout_grid">Masonry Grid</string>
+    <string name="settings_layout_list">Editorial List</string>
+    <string name="settings_sort_label">Sort order</string>
+    <string name="settings_stats_label">Local vault summary</string>
+
+    <string name="selected_count_format">%1$d selected</string>
+    <string name="cd_close_selection">Exit selection</string>
+    <string name="cd_batch_pin">Pin or unpin selected</string>
+    <string name="cd_batch_archive">Archive selected</string>
+    <string name="cd_batch_trash">Trash selected</string>
+</resources>
