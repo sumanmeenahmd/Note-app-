@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Circular badge strictly within the 66dp Android 12 splash safe zone (radius 30, center 54,54) -->
+    <path
+        android:fillColor="#203A53"
+        android:pathData="M54,24 A30,30 0 1,1 53.99,24 Z" />
+
+    <!-- Subtle inner highlight ring -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#35587B"
+        android:strokeWidth="1.2"
+        android:pathData="M54,25.5 A28.5,28.5 0 1,1 53.99,25.5 Z" />
+
+    <!-- Back sheet shadow -->
+    <path
+        android:fillColor="#E9D8B4"
+        android:pathData="M42,38 L66,38 C68.2,38 70,39.8 70,42 L70,68 C70,70.2 68.2,72 66,72 L42,72 C39.8,72 38,70.2 38,68 L38,42 C38,39.8 39.8,38 42,38 Z" />
+
+    <!-- Main ivory notepad sheet with folded top-right corner -->
+    <path
+        android:fillColor="#FFFDF7"
+        android:pathData="M40,36 L59,36 L68,45 L68,66 C68,68.2 66.2,70 64,70 L40,70 C37.8,70 36,68.2 36,66 L36,40 C36,37.8 37.8,36 40,36 Z" />
+
+    <!-- Folded corner triangle -->
+    <path
+        android:fillColor="#E2D3B3"
+        android:pathData="M59,36 L59,43 C59,44.1 59.9,45 61,45 L68,45 Z" />
+
+    <!-- Ruled note lines -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#CBD5E1"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:pathData="M42,46 L54,46 M42,52 L61,52 M42,58 L57,58 M42,64 L52,64" />
+
+    <!-- Fountain pen nib accent -->
+    <path
+        android:fillColor="#1E293B"
+        android:pathData="M62.8,47.2 L65.8,50.2 L55.8,60.2 L51.4,61.6 L52.8,57.2 Z" />
+    <path
+        android:fillColor="#F59E0B"
+        android:pathData="M54.2,57.6 m-1.1,0 a1.1,1.1 0 1,0 2.2,0 a1.1,1.1 0 1,0 -2.2,0" />
+</vector>

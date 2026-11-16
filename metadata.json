@@ -1,6 +1,6 @@
 {
-  "name": "Folio Notes",
-  "description": "A sleek cloud-synced Notes and Checklists Android app with folders, color tags, pinning, archive, and instant search.",
+  "name": "Notes",
+  "description": "Fullscreen WebView Android app for notes-app-chi.pages.dev with offline PWA caching, adaptive splash screen, and automatic device theme sync.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
