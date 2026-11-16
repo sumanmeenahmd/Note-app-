@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
+      KEYSTORE_FILE: my-upload-key.jks
       KEYSTORE_PATH: ${{ github.workspace }}/my-upload-key.jks
       STORE_PASSWORD: ${{ secrets.STORE_PASSWORD || 'NotesAppReleaseKey2026' }}
       KEY_PASSWORD: ${{ secrets.KEY_PASSWORD || 'NotesAppReleaseKey2026' }}
@@ -29,6 +30,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up JDK 21
@@ -45,10 +47,15 @@ jobs:
         with:
           gradle-version: '9.3.1'
 
-      - name: Generate and upload keystore on first run
+      - name: Ensure release keystore exists and is uploaded to repository
         run: |
+          git fetch origin "${GITHUB_REF_NAME}" || true
           if [ ! -f "$KEYSTORE_PATH" ]; then
-            echo "Keystore not found. Generating my-upload-key.jks for the first time..."
+            git checkout "origin/${GITHUB_REF_NAME}" -- "$KEYSTORE_FILE" 2>/dev/null || true
+          fi
+
+          if [ ! -f "$KEYSTORE_PATH" ]; then
+            echo "Keystore not found. Generating $KEYSTORE_FILE for the first time..."
             keytool -genkeypair -v \
               -keystore "$KEYSTORE_PATH" \
               -alias upload \
@@ -61,26 +68,32 @@ jobs:
 
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add my-upload-key.jks
+            git add "$KEYSTORE_FILE"
             git commit -m "chore: generate release keystore [skip ci]"
             git pull --rebase origin "${GITHUB_REF_NAME}" || true
             git push origin "HEAD:${GITHUB_REF_NAME}"
           else
-            echo "Using existing my-upload-key.jks from repository."
+            echo "Using existing $KEYSTORE_FILE from repository."
           fi
 
       - name: Build signed Release APK
         run: gradle assembleRelease --no-daemon
 
-      - name: Prepare Release APK artifact
+      - name: Prepare and verify Release APK
         run: |
           mkdir -p release-apks
           APK_SOURCE=$(find app/build/outputs/apk/release -name "*.apk" | head -n 1)
           if [ -z "$APK_SOURCE" ]; then
-            echo "No release APK found!"
+            echo "Error: Release APK not found!"
             exit 1
           fi
-          cp "$APK_SOURCE" "release-apks/Notes-v${VERSION_NAME}.apk"
+          TARGET_APK="release-apks/Notes-v${VERSION_NAME}.apk"
+          cp "$APK_SOURCE" "$TARGET_APK"
+
+          APKSIGNER=$(find "${ANDROID_HOME:-$ANDROID_SDK_ROOT}/build-tools" -name apksigner 2>/dev/null | sort -V | tail -n 1 || true)
+          if [ -n "$APKSIGNER" ]; then
+            "$APKSIGNER" verify --print-certs "$TARGET_APK"
+          fi
           ls -lh release-apks/
 
       - name: Create GitHub Release
@@ -88,5 +101,6 @@ jobs:
         with:
           tag_name: v${{ env.VERSION_NAME }}
           name: Notes v${{ env.VERSION_NAME }}
+          make_latest: true
           generate_release_notes: true
           files: release-apks/Notes-v${{ env.VERSION_NAME }}.apk
